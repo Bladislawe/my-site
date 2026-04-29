@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Штурм Кёнигсберга: хроника победы 1945</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #2c2418;
+            background-image: radial-gradient(circle at 10% 20%, rgba(44,36,24,0.95) 0%, #1a1510 100%);
+            font-family: 'Roboto Condensed', sans-serif;
+            color: #e8e2d4;
+            line-height: 1.5;
+        }
+        /* военный, винтажный стиль */
+        .wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #2f2a22;
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            border-left: 1px solid #8b7a5c;
+            border-right: 1px solid #8b7a5c;
+        }
+        header {
+            background: #1c1710;
+            padding: 2rem 2rem 1rem;
+            border-bottom: 3px solid #a8412c;
+            text-align: center;
+            position: relative;
+        }
+        header:before {
+            content: "";
+            letter-spacing: 8px;
+            font-size: 0.8rem;
+            color: #bfa77a;
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 0 #2a241c;
+            color: #dfcfaa;
+        }
+        .sub {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #bfa77a;
+            border-top: 1px solid #5e4e34;
+            display: inline-block;
+            margin-top: 12px;
+            padding-top: 12px;
+        }
+        /* навигация — как старая карта */
+        nav {
+            background: #252019;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #4a3d2a;
+            padding: 0.6rem 1rem;
+            gap: 1.2rem;
+        }
+        nav a {
+            color: #e2d3b0;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            padding: 0.4rem 0.8rem;
+            transition: 0.2s;
+            border-radius: 2px;
+        }
+        nav a:hover {
+            background: #a8412c;
+            color: #f2e6cf;
+        }
+        .container {
+            padding: 2rem 2rem 3rem;
+        }
+        /* элементы как в старых сводках */
+        .military-stamp {
+            border-left: 6px solid #a8412c;
+            background: rgba(0,0,0,0.25);
+            padding: 1.2rem;
+            font-family: 'Roboto Condensed', monospace;
+            margin: 1.5rem 0;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            border-bottom: 2px solid #a8412c;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding-right: 1rem;
+            letter-spacing: 1px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.4rem 0 0.8rem;
+            color: #e3cf93;
+            font-weight: 600;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: #26201a;
+            border: 1px solid #5a4a32;
+            padding: 1.2rem;
+            transition: all 0.2s;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+        }
+        .card:hover {
+            background: #2e271f;
+            border-color: #a8412c;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #a8412c;
+        }
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .timeline-item:before {
+            content: "●";
+            position: absolute;
+            left: -27px;
+            top: 4px;
+            color: #e3cf93;
+            font-size: 1.2rem;
+            text-shadow: 0 0 2px #000;
+        }
+        .timeline-date {
+            font-weight: 800;
+            font-size: 1.2rem;
+            background: #a8412c;
+            display: inline-block;
+            padding: 0.1rem 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .photo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .photo-card {
+            background: #1f1b15;
+            padding: 0.6rem;
+            width: 200px;
+            border: 1px solid #7a673f;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            background: #46402e;
+            display: block;
+            margin-bottom: 6px;
+            filter: sepia(0.4) brightness(0.9);
+        }
+        .photo-dummy {
+            background: #413a2a;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #aa9f80;
+        }
+        .btn {
+            background: #a8412c;
+            padding: 0.5rem 1.2rem;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f5ebd2;
+            border: none;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            background: #c25a42;
+        }
+        footer {
+            background: #15120c;
+            padding: 1.6rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aa9b7c;
+            border-top: 1px solid #3e3524;
+        }
+        .sources-list {
+            font-size: 0.85rem;
+            columns: 2;
+            column-gap: 2rem;
+            list-style: none;
+            padding: 0;
+        }
+        .sources-list li {
+            margin-bottom: 0.8rem;
+            break-inside: avoid;
+        }
+        a {
+            color: #e0ca94;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #e69d84;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 1.2rem; }
+            h1 { font-size: 2rem; }
+            .sources-list { columns: 1; }
+        }
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #a8412c;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #eeddbb;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1>ШТУРМ КЁНИГСБЕРГА</h1>
+        <div class="sub">«НЕПРИСТУПНЫЙ БАСТИОН ТРЕТЬЕГО РЕЙХА» · 6–9 АПРЕЛЯ 1945 Г.</div>
+    </header>
+    <nav>
+        <a href="#glavnaya" class="nav-link" data-page="main">Главная</a>
+        <a href="#khronika" class="nav-link" data-page="timeline">Хронология</a>
+        <a href="#krepost" class="nav-link" data-page="fort">Крепость</a>
+        <a href="#geroi" class="nav-link" data-page="heroes">Герои</a>
+        <a href="#galereya" class="nav-link" data-page="gallery">Фотогалерея</a>
+        <a href="#istoriya-i-dokumenty" class="nav-link" data-page="sources">Источники</a>
+    </nav>
+
+    <div class="container" id="main-content">
+        <!-- Главная страница -->
+        <div id="page-main">
+            <h2><br>Кёнигсбергская наступательная операция</h2>
+            <div class="military-stamp">
+                <strong>СОВ. СЕКРЕТНО</strong> · 3-й БЕЛОРУССКИЙ ФРОНТ · МАРШАЛ А.М. ВАСИЛЕВСКИЙ<br>
+                Цель: ликвидация кёнигсбергской группировки, овладение городом-крепостью. Сроки: 6–9 апреля 1945 г.
+            </div>
+            <p>К началу апреля 1945 года советские войска вышли к Кёнигсбергу после успешной Восточно-Прусской операции. Гарнизон насчитывал до 130 тыс. солдат и офицеров, около 4 тыс. орудий, более 100 танков. Противник создал три оборонительных пояса, превратив город в узел сопротивления первой категории. План советского командования: мощные сходящиеся удары с севера (43-я армия А.П. Белобородова, 50-я армия Ф.П. Озерова) и с юга (11-я гвардейская армия К.Н. Галицкого) при вспомогательном ударе 39-й армии на Пиллау и активной поддержке авиации (2,5 тыс. самолётов).</p>
+            <p>С 2 по 5 апреля шла артиллерийская подготовка, разрушались форты и долговременные огневые точки. 6 апреля в 9:00 более 5 тыс. орудий обрушили огонь — земля «заколыхалась как при землетрясении». В 12:00 под прикрытием огневого вала двинулась пехота, танки и самоходки. На острие наступали специализированные штурмовые отряды в составе батальона, рот саперов, огнеметчиков, с артиллерией калибром до 203 мм.</p>
+            <p>За четыре дня войска маршала Василевского прорвали плотную оборону, окружили гарнизон и 9 апреля принудили коменданта генерала Отто фон Ляша к капитуляции. Потери противника — десятки тысяч пленных, разгромлена восточно-прусская группировка. За образцовое выполнение задачи более 200 воинов стали Героями Советского Союза, 760 тыс. награждены медалью «За взятие Кенигсберга».</p>
+            <div class="photo-grid">
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-32.userapi.com/s/v1/ig2/cdLccwYJ2g-gzDzfCdCc-SlJ3HC6CnijDuxWSmalReFZYlq5IUseFC17aWQYZriGy5kIopb2ZCUMxKtYcm2kHhtJ.jpg?quality=96&amp;as=32x22,48x33,72x49,108x73,160x108,240x163,360x244,472x320&amp;from=bu&amp;u=x1ii0mAaBA32kUn2gDzBm1XlwTJQN87YEZnVQfPs3lo&amp;cs=472x0"></div><span>Форт «Король Фридрих-Вильгельм I»</span></div>
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-40.userapi.com/s/v1/ig2/54CGN5z7QTcTI4ugiLcI-0Px1l7eTBY1GikguJTkhcXbVYXI4X5vVVONR6YatoogsKxgAJ8367q8Wt5cMhLJvbSv.jpg?quality=95&amp;as=32x38,48x57,72x85,108x127,160x189,240x283,360x424,480x566&amp;from=bu&amp;u=7HV09xbR0ydP7EWO8Hsuy71MJx2wAhSZXsv_wyHxtgM&amp;cs=480x0"></div><span>Штурмовые группы в уличных боях</span></div>
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-16.userapi.com/s/v1/ig2/fitNdbUsJ65swt9mLG5r00-TouqnRwf9Kf34gK_Cs93He0prKW54JJBeaaFnJBIa6rjXuOP7hqxIOCqhhy8QhZHs.jpg?quality=95&amp;as=32x22,48x33,72x50,108x74,160x110,240x165,360x248,480x330,540x372,640x440,720x496,850x585&amp;from=bu&amp;u=CqpSWDJCOrWPZZQKLSgUgy0-2h2htGMc_g5Acz7PFzQ&amp;cs=850x0" width="594" height="409"></div><span>Цитадель, павшая 9 апреля</span></div>
+            </div>
+            <blockquote>«Части методично уничтожали гарнизоны многочисленных укреплений и медленно продвигались вперед, причем штурмовые группы смело прорывались в промежутки между фортами, окружали и блокировали их, обтекая со всех сторон». — И.Х. Баграмян.</blockquote>
+        </div>
+
+        <!-- Хронология 1945 / по годам (но операция вся 1945) с гиперссылками на детали внутри -->
+        <div id="page-timeline" style="display: none;">
+            <h2>⚔️ Хроника штурма: 6–9 апреля 1945</h2>
+            <div class="timeline">
+                <div class="timeline-item"><div class="timeline-date">📅 2–5 апреля</div>Артиллерийская подготовка. Тяжёлые орудия  методично разрушают форты внешнего пояса. Авиация из-за тумана действует ограниченно; проведена разведка боем.</div>
+                <div class="timeline-item"><div class="timeline-date">📅 6 апреля (День 1)</div>9:00 — массированный огневой налёт. К 12:00 штурмовые части переходят в наступление. На юге 11-я гвардейская армия прорывает первую полосу, к вечеру соединяется с 43-й армией, перерезав ж/д Кёнигсберг — Пиллау.Форсирование каналов, захват опорных пунктов на окраинах.</div>
+                <div class="timeline-item"><div class="timeline-date">📅 7 апреля (День 2)</div>Ожесточённые бои внутри города. 11-я гв. армия форсирует реку Прегель на подручных средствах (плоты, лодки), штурмовые отряды зачищают портовые кварталы и Южный вокзал. Потери вермахта растут, второй оборонительный пояс прорван.</div>
+                <div class="timeline-item"><div class="timeline-date">📅 8 апреля (День 3)</div>Советские армии замыкают окружение в центре. Гарнизон рассечён на изолированные очаги. Василевский направил ультиматум о сдаче — отклонён. Авиация наносит удары по Королевскому замку и портовым сооружениям.</div>
+                <div class="timeline-item"><div class="timeline-date">📅 9 апреля (День 4)</div>С утра штурм кварталов у Королевского замка и бастионов. Генерал Отто фон Ляш в бункере на Парадной площади, потеряв связь с большинством частей, в 21:30 подписывает акт капитуляции. К 24:00 сопротивление организованных сил прекращается.</div>
+            </div>
+            <p>После капитуляции в плен сдались около 90 тыс. немецких солдат и офицеров. 10 апреля над руинами замка было поднято советское знамя. В ознаменование победы Москва салютовала 24 артиллерийскими залпами из 324 орудий.</p>
+        </div>
+
+        <!-- Крепость Кёнигсберг: форты, бастионы, система обороны -->
+        <div id="page-fort" style="display: none;">
+            <h2>🏰 Три кольца неприступности</h2>
+            <p>К началу 1945 года Кёнигсберг являлся мощнейшим городом-крепостью. Система обороны включала:</p>
+            <div class="grid-cards">
+                <div class="card"><strong>1-й пояс (5–8 км от центра)</strong><br>15 кирпичных фортов толщиной стен 1–3 метра: форт «Дона», «Кёниг», «Лойтц» и др. Каждый гарнизоном 150–300 человек, 12–15 орудий. Траншеи, минные поля и противотанковые рвы.</div>
+                <div class="card"><strong>2-й пояс (окраины)</strong><br>Каменные здания, превращённые в ДОТы. Баррикады, железобетонные огневые точки, сотни км траншей с проволочными заграждениями.</div>
+                <div class="card"><strong>3-й пояс (центр)</strong><br>9 башен и бастионов: Врангель, Дона (ныне Музей янтаря), Росгартенские ворота, Королевский замок — средневековая цитадель на холме у Прегеля, приспособленная к долговременной обороне.</div>
+            </div>
+            <p>Немецкое командование (фестунг) объявило Кёнигсберг городом-крепостью, который должен сковать советские дивизии. Однако применение штурмовых групп РККА и массированная артиллерийская поддержка нейтрализовали преимущества долговременных укреплений.</p>
+        </div>
+
+        <!-- Герои и награды -->
+        <div id="page-heroes" style="display: none;">
+            <h2>⭐ Герои штурма Кёнигсберга</h2>
+            <p>За мужество и воинское мастерство свыше 200 участников удостоены звания Героя Советского Союза, 760 000 бойцов награждены медалью «За взятие Кенигсберга».</p>
+            <div class="grid-cards">
+                <div class="card"><strong>А.М. Василевский</strong> — Маршал Советского Союза, командующий 3-м Белорусским фронтом. Удостоен второго ордена «Победа» за руководство штурмом.</div>
+                <div class="card"><strong>А.П. Белобородов</strong> — генерал-лейтенант, командующий 43-й армией, награждён второй медалью «Золотая Звезда».</div>
+                <div class="card"><strong>Ю.Н. Костиков</strong> — Гвардии сержант,в бою 9 апреля 1945 г., охраняя штаб, обнаружил проникнувших в тыл вражеских солдат и пулемётным огнём заставил их залечь, дав возможность уничтожить группу.</div>
+            </div>
+            <p><strong>Герои навсегда в памяти:</strong> лейтенант сапёр Ю.Н. Артамонов, студент ГИСИ, отличившийся при разминировании и переправах; инженер-капитан С.И. Слепп, награждённый двумя орденами Красной Звезды и медалью «За взятие Кенигсберга». Военный подвиг народа стал символом высокого искусства Красной армии.</p>
+        </div>
+
+        <!-- Фотогалерея (реальные архивы) -->
+        <div id="page-gallery" style="display: none;">
+            <h2>📸 «Огонь, сталь и победа» (архивные фото)</h2>
+            <p>Уникальные снимки апреля 1945 г., фонды ЦАМО, РГАКФФД и Калининградского музея.</p>
+            <div class="photo-grid">
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-23.userapi.com/s/v1/ig2/MQ-zU76dMtAgoIolaDVXWNLCcIGDfOdsUTyfuTsb5Q_PWpdscK5vSk49P6lz-K0CjggXM2hh3_TvBqCofHb_rnSx.jpg?quality=95&amp;as=32x12,48x18,72x27,108x40,160x59,240x88,360x133,480x177,540x199,640x236,720x265,1080x398,1280x471,1440x530,1920x707&amp;from=bu&amp;u=AURhjheR7oMDufFLbGXAdqQiIagoy2yI-E6cu3VSDvE&amp;cs=1920x0" width="594" height="218"></div>Кёнигсберг после штурма, апрель 1945.</div>
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-23.userapi.com/s/v1/ig2/nVeT8OFgigoNuxiB2u5688x1H8XbZTHFkrTxZI1r7cDVjJ74RxPRTUqWoqzpWILThAxZQl4VUqv6OlKmoNrrbyd4.jpg?quality=95&amp;as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720&amp;from=bu&amp;u=jZ79oEJcv-EDDQheg1Hs5c-_IMh9LsydTTRf51q5k8w&amp;cs=1280x0" width="594" height="334"></div>Советские танки на улице перед Королевским замком.</div>
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-72.userapi.com/s/v1/ig2/7WbT7-WdLQuUFc13qpYfWgO8zXlwZWKdnRJCwO8Px_KONUVIKhPq1gOYG1J1X3oO63jxsUGDlv72g4oz9NoWEH9c.jpg?quality=95&amp;as=32x23,48x35,72x52,108x78,160x115,240x173,360x260,480x346,540x390,640x462,720x520,960x693&amp;from=bu&amp;u=mn65Gnl5RguTnCiyu-Wkhz6FCxIHqfMYJd5Lr50QLoU&amp;cs=960x0" width="594" height="429"></div>Подъём советского флага над цитаделью 10 апреля.</div>
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-54.userapi.com/s/v1/ig2/rhR2C7HcZQN69nVDd7fNtHc_7dpAeHJfFbzrpMzmstdbKMT_ke5Yy3k9j6Q20rVbbsA5PKbylh88MhU3d1nSEtYR.jpg?quality=95&amp;as=32x14,48x21,72x31,108x46,160x69,240x103,360x155,480x206,540x232,640x275,702x302&amp;from=bu&amp;u=8O0BdhddmnP42xY9wlCM8V3Psj3GwP0Npv4KfFL7tUY&amp;cs=702x0" width="594" height="255"></div>Отто фон Ляш в сопровождении советских офицеров после капитуляции.</div>
+                <div class="photo-card"><div class="photo-dummy"><img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://sun9-55.userapi.com/s/v1/ig2/-S4IB5cOcHWlA2mkJPIsgs3GUs9vMTMSLLFIIiQjVsxgpod8VI8S9UYKXXQqFvGHLy2pmQcZlGawSJgttjLYC341.jpg?quality=95&amp;as=32x17,48x25,72x38,108x57,160x84,240x126,360x188,480x251,540x283,640x335,720x377,1080x565,1200x628&amp;from=bu&amp;u=-IPFdLScC5TCmYvUMORsC9BmJfkQmDd068cOmOHABvg&amp;cs=1200x0" width="594" height="311"></div>Вооружённые автоматами ППШ и огнемётами бойцы перед атакой.</div>
+            </div>
+            <blockquote>Настоящие документальные кадры из рассекреченных архивов Минобороны РФ — опубликованы в проекте «Штурм Кенигсберга: неприступные бастионы пали перед мужеством».</blockquote>
+        </div>
+
+        <!-- Источники по ГОСТу -->
+        <div id="page-sources" style="display: none;">
+            <h2>📚 Список использованных источников </h2>
+            <ul class="sources-list">
+                <li>1. Варшавчик С. «Огнеметчики помогали продвигаться вперед»: Как Красная армия разбила укрепление нацистской Германии и взяла Кенигсберг // Lenta.ru. — 2022. — 6 апреля. — URL: <a href="https://lenta.ru/articles/2022/04/06/kenigsberg/" target="_blank">https://lenta.ru/articles/2022/04/06/kenigsberg/</a></li>
+                <li>2. Штурм Кёнигсберга: неприступные бастионы пали перед мужеством // Региональный центр патриотического воспитания им. Героя России И.О. Родобольского. — 2025. — URL: <a href="https://www.xn--b1azcy.xn--p1ai/80-let-velikoy-pobedy/shturm-kyonigsberga-nepristupnye-bastiony-pali-pered-muzhestvom/" target="_blank">ссылка</a>  </li>
+                <li>3. История.РФ: Взятие Кенигсберга (Кенигсбергская операция 6–9 апреля 1945) // Российское военно-историческое общество. — URL: <a href="https://history.ru/" target="_blank">https://history.ru/</a>  </li>
+                <li>4. 75-летию штурма города-крепости Кёнигсберг посвящается // Центральная библиотека им. Гайдара. — 2020. — URL: <a href="https://bitrix.librgaidar.net" target="_blank">https://bitrix.librgaidar.net</a> </li>
+                <li>5. 80 лет штурму Кенигсберга: МелГУ вспоминает героев-преподавателей // Мелитопольский государственный университет. — 2026. — URL: <a href="https://melsu.ru/news/show/1933" target="_blank">https://melsu.ru/news/show/1933</a>  </li>
+                <li>6. Ржевцев Ю.П. Кенигсбергское фиаско генерала фон Ляша // НВО НГ. — 2021. — 18 марта. — URL: <a href="https://nvo.ng.ru/history/2021-03-18/12_1133_fiasco.html" target="_blank">https://nvo.ng.ru</a>  </li>
+                <li>7. Государственный музей истории Санкт-Петербурга: Зима-весна 1945 года в объективе фронтовых фотокорреспондентов. — 2019. — URL: <a href="https://www.spbmuseum.ru" target="_blank">www.spbmuseum.ru</a> </li>
+                <li>8. Герои ГИСИ-ННГАСУ: взятие Кёнигсберга (Артамонов Ю.Н.) // ННГАСУ. — 2025. — URL: <a href="https://nngasu.ru/content/news/index.php?ELEMENT_ID=23143" target="_blank">https://nngasu.ru/</a>  </li>
+                <li>9. Минобороны России: Мультимедийный проект «Штурм Кенигсберга: неприступные бастионы пали перед мужеством». — 2025. — URL: <a href="https://mil.ru/" target="_blank">mil.ru</a>  </li>
+            </ul>
+            <p class="military-stamp">Документы предоставлены пользователем: два изображения с боевыми сводками, реквизитами и PDF-файл с рассекреченными выдержками из Минобороны РФ — интегрированы в хронологию и описание трёх оборонительных колец.</p>
+        </div>
+    </div>
+    <footer>
+        © 1945–2026 · Память о героях штурма Кёнигсберга. Материал создан на основе открытых архивных данных, рассекреченных документов ЦА МО РФ и предоставленных пользователем источников.
+    </footer>
+</div>
+<script>
+    // переключение "страниц" по навигации
+    const pages = {
+        main: document.getElementById('page-main'),
+        timeline: document.getElementById('page-timeline'),
+        fort: document.getElementById('page-fort'),
+        heroes: document.getElementById('page-heroes'),
+        gallery: document.getElementById('page-gallery'),
+        sources: document.getElementById('page-sources')
+    };
+    function showPage(pageId) {
+        for (let key in pages) {
+            if (pages[key]) pages[key].style.display = 'none';
+        }
+        if (pages[pageId]) pages[pageId].style.display = 'block';
+    }
+    // обработка кликов по навигации
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            let page = link.getAttribute('data-page');
+            if (page && pages[page]) showPage(page);
+            else showPage('main');
+            history.pushState(null, '', link.getAttribute('href'));
+        });
+    });
+    // обработка начальной загрузки (якорь)
+    const hash = window.location.hash.slice(1);
+    if (hash === 'khronika') showPage('timeline');
+    else if (hash === 'krepost') showPage('fort');
+    else if (hash === 'geroi') showPage('heroes');
+    else if (hash === 'galereya') showPage('gallery');
+    else if (hash === 'istoriya-i-dokumenty') showPage('sources');
+    else showPage('main');
+</script>
+</body>
+</html>
